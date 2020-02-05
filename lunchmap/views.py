@@ -14,6 +14,13 @@ def index(request):
     }
     return render(request, 'lunchmap/index.html', context)
 
+def agenda(request):
+    context = {
+        'message': 'Welcome my BBS',
+        'players': ['勇者', '戦士', '魔法使い', '忍者']
+    }
+    return render(request, 'lunchmap/agenda.html', context)
+
 class IndexView(generic.ListView):
     model = Shop
 

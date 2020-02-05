@@ -15,7 +15,7 @@
   </iframe>
 
   <div>
-    <a href='{% url "lunchmap:index" %}'>一覧</a>
+    <a href='{% url "lunchmap:index02" %}'>一覧</a>
     {% if request.user.id == object.author_id %}
       | <a href='{% url "lunchmap:update" shop.pk %}'>編集</a>
       | <a href='{% url "lunchmap:delete" shop.pk %}'>削除</a>
