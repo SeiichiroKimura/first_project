@@ -21,6 +21,16 @@ def agenda(request):
     }
     return render(request, 'lunchmap/agenda.html', context)
 
+def venue(request):
+    context = {
+    }
+    return render(request, 'lunchmap/venue.html', context)
+
+def photo(request):
+    context = {
+    }
+    return render(request, 'lunchmap/photo.html', context)
+
 class IndexView(generic.ListView):
     model = Shop
 
