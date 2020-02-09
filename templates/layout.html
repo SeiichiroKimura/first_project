@@ -6,6 +6,17 @@
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'&gt;>
         <style>body {padding-top: 80px;}</style>
         <title>Waikiki Wedding</title>
+        <style>
+        h1{
+          font-family: cursive;
+          color: pink;
+        }
+        p{
+          font-family: cursive;
+          color: black;
+        }
+      </style>
+
     </head>
     <body>
         <nav class='navbar navbar-expand-sm navbar-dark bg-dark fixed-top'>
@@ -14,19 +25,19 @@
             <!-- 左側のヘッダー -->
             <ul class='navbar-nav mr-auto'>
               <li class='nav-time menu'>
-                <a class="nav-link" href='{% url "lunchmap:agenda" %}'>当日の流れ</a>
+                <a class="nav-link" href='{% url "lunchmap:agenda" %}'>Agenda</a>
               </li>
               <li class='nav-time menu'>
-                <a class="nav-link" href='{% url "lunchmap:venue" %}'>会場案内</a>
+                <a class="nav-link" href='{% url "lunchmap:venue" %}'>Place</a>
               </li>
               <li class='nav-time menu'>
-                <a class="nav-link" href='{% url "lunchmap:photo" %}'>写真館</a>
+                <a class="nav-link" href='{% url "lunchmap:photo" %}'>Photos</a>
               </li>
               <li class='nav-time menu'>
-                <a class="nav-link" href='{% url "lunchmap:index02" %}'>現地グルメ</a>
+                <a class="nav-link" href='{% url "lunchmap:index02" %}'>Restaurant</a>
               </li>
               <li class='nav-time menu'>
-                <a class="nav-link" href="#">ブログ</a>
+                <a class="nav-link" href="#">Blog</a>
               </li>
             </ul>
             <class>
