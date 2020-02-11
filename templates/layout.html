@@ -4,20 +4,11 @@
         <meta charset='utf-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'&gt;>
-        <style>body {padding-top: 80px;}</style>
         <title>Waikiki Wedding</title>
-        <style>
-        h1{
-          font-family: cursive;
-          color: pink;
-        }
-        p{
-          font-family: cursive;
-          color: black;
-        }
-      </style>
-
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style_layout.css' %}">
     </head>
+
     <body>
         <nav class='navbar navbar-expand-sm navbar-dark bg-dark fixed-top'>
             <a class='navbar-brand' href='{% url "lunchmap:index" %}'>Wedding 2020</a>
@@ -40,7 +31,6 @@
                 <a class="nav-link" href="#">Blog</a>
               </li>
             </ul>
-            <class>
 
             <!-- 右側のヘッダー -->
             <ul class='navbar-nav'>
@@ -61,6 +51,7 @@
               {% endif %}
             </ul>
         </nav>
+
         <div class='container'>
             {% block content %}
             {% endblock %}

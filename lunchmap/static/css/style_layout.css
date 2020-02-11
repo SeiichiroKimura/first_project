@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Sacramento');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
+
+body {
+  padding-top: 62px;
+}
+
+div.top-wapper {
+}
+
+h1{
+  font-family: cursive;
+  color: pink;
+  padding-top: 15px;
+}
+
+.top-cover {
+  background-image: url("/static/lunchmap/images/welcome.jpg");
+  background-size: cover;
+  width: auto;
+  height: 550px;
+}
+
+a.navbar-brand {
+  font-family: 'Sacramento', cursive;
+  font-size: 24px;
+}
+
+a.nav-link {
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 20px;
+}
+
+h4 {
+  font-family: 'Noto Sans JP', sans-serif;
+  padding-top: 15px;
+}
+
+p {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 15px;
+  padding-top: 15px;
+}

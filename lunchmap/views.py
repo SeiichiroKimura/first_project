@@ -6,11 +6,8 @@ from django.core.exceptions import PermissionDenied
 from django.http import HttpResponse
 from django.shortcuts import render
 
-
 def index(request):
     context = {
-        'message': 'Welcome my BBS',
-        'players': ['勇者', '戦士', '魔法使い', '忍者']
     }
     return render(request, 'lunchmap/index.html', context)
 
