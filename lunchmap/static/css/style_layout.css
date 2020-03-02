@@ -4,9 +4,14 @@
 
 body {
   padding-top: 62px;
+  background-color: #FFFFEE;
 }
 
-div.top-wapper {
+.top-cover {
+  background-image: url("/static/lunchmap/images/main-banner.jpg");
+  background-size: cover;
+  width: auto;
+  height: 470px;
 }
 
 h1{
@@ -15,11 +20,112 @@ h1{
   padding-top: 15px;
 }
 
-.top-cover {
-  background-image: url("/static/lunchmap/images/welcome.jpg");
+p.name {
+  font-family: cursive;
+  font-size: 35px;
+  text-align: center;
+  padding-top: 100px;
+  color: pink;
+}
+
+.sachi {
+  color: black;
+  opacity: 0.7;
+}
+
+.sei {
+  color: black;
+  opacity: 0.7;
+}
+
+/* ここからカウントダウンのテスト */
+
+.countDown {
+  margin: 50px 0;
+  text-align: center;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 25px;
+}
+.countDownText {
+  padding: 5px;
+  font-family: cursive;
+  color: #ff00ff;
+  font-size: 35px;
+}
+
+/* ここまでカウントダウん */
+
+p.info {
+  font-family: cursive;
+  font-size: 20px;
+  text-align: center;
+  margin:auto;
+}
+
+/* ここから挨拶の箇所 */
+
+.greeting-title {
+  padding-top: 45px;
+  text-align:center;
+}
+
+h1.greeting-phrase {
+  display: inline-block;
+  border-bottom: 2px solid #666666;
+}
+
+.greeting {
+  background-image: url("/static/lunchmap/images/maedori01.jpg");
   background-size: cover;
   width: auto;
-  height: 550px;
+  height: 650px;
+  position: relative;
+  padding: 30px;
+}
+
+.greeting-text {
+  position: absolute;
+  top: 300px;
+  right: 20px;
+  color: white;
+  font-size: 20px;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* ここまで挨拶の箇所 */
+
+.place {
+  padding-top: 60px;
+  text-align: center;
+}
+
+/* 当日のスケジュール */
+.container-agenda {
+  background-image: url("/static/lunchmap/images/beach.jpg");
+  background-size: cover;
+  width: auto;
+  height: 500px;
+}
+
+.agenda-top {
+  /* background-image: url("/static/lunchmap/images/main-banner.jpg");
+  background-size: cover;
+  width: auto;
+  height: 250px; */
+}
+
+.photo-top {
+  background-image: url("/static/lunchmap/images/main-banner.jpg");
+  background-size: cover;
+  width: auto;
+  height: 250px;
+}
+
+.restaurant-top {
+  background-image: url("/static/lunchmap/images/main-banner.jpg");
+  background-size: cover;
+  width: auto;
+  height: 250px;
 }
 
 a.navbar-brand {

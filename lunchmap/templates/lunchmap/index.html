@@ -1,10 +1,76 @@
 {% extends 'layout.html' %}
+
 {% block content %}
 
 <div class="top-cover">
-  <h1>Welcome to our Wedding!!</h1>
-  <p>2020.03.19</p>
+  <h1>Welcome to our Wedding</h1>
+  <p class="name"><span class="sachi">Sachiyo</span> & <span class="sei">Seiichiro</p>
+
+  <div class="countDown">挙式まであと
+    <span class="countDownText">
+      <script language="JavaScript">
+        var now = new Date();
+        var point = new Date("2020/03/19");
+        var countdown = Math.ceil((point.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
+        if (countdown > 0) {
+          document.write(countdown);
+        }
+      </script>
+    </span>日</div>
+
+    <p class="info">2020.03.19</p>
+    <p class="info">ハワイ　アロハ・ケ・アクア</p>
 </div>
+
+<div class="greeting-title">
+<h1 class="greeting-phrase">Greeting</h1>
+</div>
+
+<div class="greeting">
+  <div class="greeting-text">
+    この度は私たちの結婚式・パーティにご参加いただき<br>誠にありがとうございます。<br>開放感の溢れるハワイの挙式をぜひ思い切り<br>お楽しみください！
+  </div>
+</div>
+
+<!-- <div class="place">
+<h1>Wedding Place</h1>
+
+<h2>ハワイ・オワフ島</h2>
+<h2>The Private Garden Aloha Ke Akua</h2>
+<h3>ザ・プライベートガーデン アロハ・ケ・アクア</h3>
+
+<p>妖精が造り上げたという伝説が伝わるハート型の湖を望む聖地に広がる「ザ・プライベート・ガーデン アロハ・ケ・アクア」は、
+雄大な山々や芝生の緑と大空と湖の青が寄り添う 特別な場所。ビーチや公園などの美しい景観を活かした写真撮影にこだわったり、
+自然の中でパーティやゲストとの語らいを楽しんだりすることが出来る、ナチュラルスタイルの挙式場です。</p>
+
+{% load static %}
+<img class="photo1" src="{% static 'lunchmap/images/alohake.jpg' %}" width="100%" height="100%"></img>
+
+<h4>“古き良きハワイ”の魅力が息づく聖地</h4>
+<p>「ザ・プライベート・ガーデン アロハ・ケ・アクア」のあるカネオヘエリアは、ナチュラルでスピリチュアルなネイティブハワイが満喫できる場所みたいです。</p>
+
+<img class="photo1" src="{% static 'lunchmap/images/wedding_space.jpg' %}" width="100%" height="100%"></img>
+
+<h4>-ナチュラルスタイル-</h4>
+<p>自然に囲まれてとり行う挙式。雰囲気は抜群。晴れるといいな〜。。</p>
+
+<img class="photo1" src="{% static 'lunchmap/images/restaurant_space.jpg' %}" width="100%" height="100%"></img>
+
+<h4>豊かな自然に囲まれ開放感のあるパーティ会場</h4>
+<p>湖を望むガーデンダイニングは、美しい眺望と心地よい海風に癒される貸切のプライベート空間。自然体の寛ぎを大切なゲストとともに満喫したいところ。</p>
+
+<p>↓地図はこちら</p>
+
+<iframe id='map'
+  src='https://www.google.com/maps/embed/v1/place?key=AIzaSyDA7cTXuCisuoTl4DCznOUA-q0w7XEjKuM&q=47-507 Kamehameha Hwy, Kaneohe, HI 96744 アメリカ合衆国'
+  width='100%'
+  height='420'
+  frameborder='0'>
+</iframe>
+
+<a href="https://www.watabe-wedding.co.jp/resort_wedding_overseas/hawaii/chapel_aloha_ke/?utm_source=google&utm_medium=cpc&utm_campaign=rz_br_chapel&utm_content=hawaii_chapel&gclid=CjwKCAiAj-_xBRBjEiwAmRbqYv7Gej1matV3A_kPh5Al7Cbx5Ixhr03G91PCLkk5XDLd0p_oXZE5XhoCr5YQAvD_BwE#" target="_blank">さらに詳細をチェック</a>
+
+</div> -->
 
 <!-- <ul>
   <li>当日の流れ：何時にどこ集合とか、パーティの式次第とかざっくりと</li>

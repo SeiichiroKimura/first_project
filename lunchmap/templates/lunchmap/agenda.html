@@ -1,17 +1,71 @@
-{% extends 'layout.html' %}
-{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'&gt;>
+        <title>Waikiki Wedding</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style_layout.css' %}">
+        <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/layout.js' %}"></script>
+    </head>
 
-<h1>Agenda</h1>
-<p>当日の流れは以下の通りとなります</p>
+    <body>
+        <nav class='navbar navbar-expand-sm navbar-dark bg-dark fixed-top'>
+            <a class='navbar-brand' href='{% url "lunchmap:index" %}'>Wedding 2020</a>
 
-<ul>
-  <li>10時：</li>
-  <li>11時：</li>
-  <li>12時：挙式</li>
-  <li>１３：３０ party開始</li>
-  <li>などなど、記載</li>
-</ul>
+            <!-- 左側のヘッダー -->
+            <ul class='navbar-nav mr-auto'>
+              <li class='nav-time menu'>
+                <a class="nav-link" href='{% url "lunchmap:agenda" %}'>Agenda</a>
+              </li>
+              <li class='nav-time menu'>
+                <a class="nav-link" href='{% url "lunchmap:venue" %}'>Place</a>
+              </li>
+              <li class='nav-time menu'>
+                <a class="nav-link" href='{% url "lunchmap:photo" %}'>Photos</a>
+              </li>
+              <li class='nav-time menu'>
+                <a class="nav-link" href='{% url "lunchmap:index02" %}'>Restaurant</a>
+              </li>
+              <li class='nav-time menu'>
+                <a class="nav-link" href="#">Blog</a>
+              </li>
+            </ul>
 
+            <!-- 右側のヘッダー -->
+            <ul class='navbar-nav'>
+              {% if user.is_authenticated %}
+              <li class='nav-time'>
+                <span class='navbar-text'>ようこそ {{ user }} さん - </span>
+              </li>
+              <li class='nav-item'>
+                <a href='{% url "logout" %}' class='logout nav-link'>Logout</a>
+              </li>
+              {% else %}
+              <li class='nav-item'>
+                <a href='{% url "login" %}' class='login nav-link'>Login</a>
+              </li>
+              <li class="nav-item">
+                <a href='{% url "accounts:signup" %}' class='signup nav-link'> Sign up </a>
+              </li>
+              {% endif %}
+            </ul>
+        </nav>
 
+        <div class='container-agenda'>
+            <h1 class="agenda-top">Agenda</h1>
+            <p>当日の流れは以下の通りとなります</p>
 
-{% endblock %}
+            <ul>
+              <li>10時：</li>
+              <li>11時：</li>
+              <li>12時：挙式</li>
+              <li>１３：３０ party開始</li>
+              <li>などなど、記載</li>
+            </ul>
+
+        </div>
+    </body>
+</html>
