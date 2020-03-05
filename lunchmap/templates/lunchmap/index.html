@@ -1,36 +1,170 @@
-{% extends 'layout.html' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'&gt;>
+        <title>Waikiki Wedding</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style_layout.css' %}">
+        <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/layout.js' %}"></script>
+    </head>
 
-{% block content %}
+    <body>
+        <nav class='navbar navbar-expand-sm navbar-dark fixed-top'>
+            <a class='navbar-brand' href='{% url "lunchmap:index" %}'>Waikiki Wedding</a>
 
-<div class="top-cover">
-  <h1>Welcome to our Wedding</h1>
-  <p class="name"><span class="sachi">Sachiyo</span> & <span class="sei">Seiichiro</p>
+            <!-- 左側のヘッダー -->
+            <ul class='navbar-nav mr-auto'>
+              <li class='nav-time menu'>
+                <a class="nav-link" href='{% url "lunchmap:agenda" %}'>Agenda</a>
+              </li>
+              <li class='nav-time menu'>
+                <a class="nav-link" href='{% url "lunchmap:venue" %}'>Place</a>
+              </li>
+              <li class='nav-time menu'>
+                <a class="nav-link" href='{% url "lunchmap:photo" %}'>Photos</a>
+              </li>
+              <li class='nav-time menu'>
+                <a class="nav-link" href='{% url "lunchmap:index02" %}'>Restaurant</a>
+              </li>
+              <li class='nav-time menu'>
+                <a class="nav-link" href="#">Blog</a>
+              </li>
+            </ul>
 
-  <div class="countDown">挙式まであと
-    <span class="countDownText">
-      <script language="JavaScript">
-        var now = new Date();
-        var point = new Date("2020/03/19");
-        var countdown = Math.ceil((point.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
-        if (countdown > 0) {
-          document.write(countdown);
-        }
-      </script>
-    </span>日</div>
+            <!-- 右側のヘッダー -->
+            <ul class='navbar-nav'>
+              {% if user.is_authenticated %}
+              <li class='nav-time'>
+                <span class='navbar-text'>ようこそ {{ user }} さん - </span>
+              </li>
+              <li class='nav-item'>
+                <a href='{% url "logout" %}' class='logout nav-link'>Logout</a>
+              </li>
+              {% else %}
+              <li class='nav-item'>
+                <a href='{% url "login" %}' class='login nav-link'>Login</a>
+              </li>
+              <li class="nav-item">
+                <a href='{% url "accounts:signup" %}' class='signup nav-link'> Sign up </a>
+              </li>
+              {% endif %}
+            </ul>
+        </nav>
 
-    <p class="info">2020.03.19</p>
-    <p class="info">ハワイ　アロハ・ケ・アクア</p>
-</div>
+        <div class="top-cover">
+          <h1>Welcome to our Wedding</h1>
+          <p class="name"><span class="sachi">Sachiyo</span> & <span class="sei">Seiichiro</p>
 
-<div class="greeting-title">
-<h1 class="greeting-phrase">Greeting</h1>
-</div>
+          <div class="countDown">挙式まであと
+            <span class="countDownText">
+              <script language="JavaScript">
+                var now = new Date();
+                var point = new Date("2020/03/19");
+                var countdown = Math.ceil((point.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
+                if (countdown > 0) {
+                  document.write(countdown);
+                }
+              </script>
+            </span>日</div>
 
-<div class="greeting">
-  <div class="greeting-text">
-    この度は私たちの結婚式・パーティにご参加いただき<br>誠にありがとうございます。<br>開放感の溢れるハワイの挙式をぜひ思い切り<br>お楽しみください！
-  </div>
-</div>
+            <p class="info">2020.03.19</p>
+            <p class="info">Aloha Ke Akua, Waikiki</p>
+        </div>
+
+        <div class="category-title">
+        <h1 class="title-phrase">Greeting</h1>
+        <p>ご挨拶</p>
+        </div>
+
+        <div class="greeting">
+          <div class="greeting-photo">
+            {% load static %}
+            <img class="maedori" src="{% static 'lunchmap/images/maedori01.jpg' %}" width="50%" height="50%"></img>
+          </div>
+          <div class="greeting-text">
+            　この度は私たちの結婚を一緒にお祝いいただき<br>誠にありがとうございます。<br><br>
+            　無事に入籍し、ハワイの地で無事に挙式を行えるのも<br>皆様の暖かな応援あってのことです。<br><br>
+            　当日はぜひ、開放感の溢れるハワイでのパーティを<br>存分にお楽しみください。<br><br><br><br>
+            木村誓一郎・幸代
+          </div>
+        </div>
+
+        <div class="category-title">
+        <h1 class="title-phrase">Wedding Place</h1>
+        <p>挙式場のご紹介</p>
+        </div>
+
+        <div class="place">
+          <div class="place-photo">
+            {% load static %}
+            <img src="{% static 'lunchmap/images/alohake.jpg' %}" width="80%" height="80%"></img>
+          </div>
+          <div class="place-text">
+            <h2>The Private Garden Aloha Ke Akua</h2>
+            <h3>ザ・プライベートガーデン アロハ・ケ・アクア</h3>
+
+            <p>雰囲気とコンセプト（＋噂）だけで、新郎新婦とも即決したウェディング会場です。道端アンジェリカなど有名人もこの会場で挙式・パーティを行った模様。
+            <br>ワイキキの市街地から車で１時間程度と少し離れますが、自然豊かな環境を独占し、リラックスできること間違いなしです！</p>
+
+            さらに詳細は<a href="https://www.watabe-wedding.co.jp/resort_wedding_overseas/hawaii/chapel_aloha_ke/?utm_source=google&utm_medium=cpc&utm_campaign=rz_br_chapel&utm_content=hawaii_chapel&gclid=CjwKCAiAj-_xBRBjEiwAmRbqYv7Gej1matV3A_kPh5Al7Cbx5Ixhr03G91PCLkk5XDLd0p_oXZE5XhoCr5YQAvD_BwE#" target="_blank">こちら</a>（外部リンク）
+
+          </div>
+        </div>
+
+        <div class="category-title">
+        <h1 class="title-phrase">Agenda</h1>
+        <p>ウェディング当日の流れ</p>
+        <p>3月19日の挙式当日は、10時半より２箇所のホテルにバスがピックアップに参ります。</p>
+        <p>その後は式場へ移動し、挙式・パーティを開催。ワイキキ市街への戻りは<br>16時ごろを予定しておりますので、
+          ご予定を調整いただけますと幸いです。</p>
+        </div>
+
+        <!-- こっからProgateマルパクリ -->
+        <div class="slide-wrapper">
+            <div class="change-btn-wrapper">
+              <div class="change-btn prev-btn">← 前へ</div>
+              <div class="change-btn next-btn">次へ →</div>
+            </div>
+            <ul class="slides">
+              <li class="slide active"><p>ヒルトン・ハワイアンビレッジ（1つ目の集合場所）</p><img src="{% static 'lunchmap/images/hilton02.jpg' %}" width="100%" height="100%"></img><p>10:30 Hilton Hawaian Villageピックアップ → 11:00 リッツカールトンでPick up</p></li>
+              <li class="slide"><p>リッツカールトン・レジデンシャル（2つ目の集合場所）</p><img src="{% static 'lunchmap/images/litzcarton.jpg' %}" width="100%" height="50%"></img><p>10:30 Hilton Hawaian Villageピックアップ → 11:00 リッツカールトンでPick up</p></li>
+              <li class="slide"><p>バス移動（写真はイメージです）</p><img src="{% static 'lunchmap/images/waikikibus.jpg' %}" width="100%" height="100%"></img><p>送迎バスで移動 → 式場へ移動</p></li>
+              <li class="slide"><p>ウェディングセレモニー</p><img src="{% static 'lunchmap/images/ceremony.png' %}" width="100%" height="100%"></img><p>挙式：12:00~13:00</p></li>
+              <li class="slide"><p>ウェディング・パーティ（写真はイメージです）</p><img src="{% static 'lunchmap/images/restaurant_space.jpg' %}" width="100%" height="100%"></img><p>パーティ（食事会）:13:00~15:00</p></li>
+            </ul>
+            <div class="index-btn-wrapper">
+              <div class="index-btn">1</div>
+              <div class="index-btn">2</div>
+              <div class="index-btn">3</div>
+              <div class="index-btn">4</div>
+              <div class="index-btn">5</div>
+            </div>
+          </div>
+
+          <div class="category-title">
+          <h1 class="title-phrase">Photo Gallery</h1>
+          <p>新郎新婦とゲストの写真ご紹介</p>
+
+          </div>
+
+          <div class="photo-gallery">
+            <p>（写真を見るにはログインが必要です)</p>
+            <div class="display-photo">
+              {% if user.is_authenticated %}
+              {% load static %}
+              <a href='{% url "lunchmap:photo" %}'><img src="{% static 'lunchmap/images/bali.JPG' %}" width="40%" height="40%"></img></a>
+              {% else %}
+              <a href='{% url "login" %}'><img src="{% static 'lunchmap/images/bali.JPG' %}" width="40%" height="40%"></img></a>
+              {% endif %}
+            </div>
+
+          </div>
+
+    </body>
+</html>
 
 <!-- <div class="place">
 <h1>Wedding Place</h1>
@@ -81,5 +215,3 @@
 </ul>
 
 <p>グルメとブログには、サインインすればゲストも投稿可能</p> -->
-
-{% endblock %}

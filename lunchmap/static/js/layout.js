@@ -1,21 +1,31 @@
-// jQuery(function($) {
-//     $('.bg-slider').bgSwitcher({
-//         images: ['/static/lunchmap/images/welcome.jpg','/static/lunchmap/images/welcome02.jpg','/static/lunchmap/images/alohake.jpg'], // 切り替える背景画像を指定
-//     });
-// });
+$(function() {
 
-// $('#timer').yycountdown({endDateTime:'2020/07/24 00:00:00'});
-//
-// console.log('test');
-//
-// $(document).ready(function(){
-// 　$("p").click(function(){
-// 　　$(this).text((new Date()).toLocaleString());
-//   });
-// });
+  function toggleChangeBtn() {
+    var slideIndex = $('.slide').index($('.active'));
+    $('.change-btn').show();
+    if (slideIndex == 0) {
+      $('.prev-btn').hide();
+    // 「3」の部分を、lengthメソッドを用いて書き換えてください
+    } else if (slideIndex == $('.slide').length - 1) {
+      $('.next-btn').hide();
+    }
+  }
 
-//東京オリンピックまでのカウントダウン
-    // $('#future_date').countdowntimer({
-    //     dateAndTime: "2020/07/24 00:00:00",
-    //     size: "lg"
-    // });
+  $('.index-btn').click(function() {
+    $('.active').removeClass('active');
+    var clickedIndex = $('.index-btn').index($(this));
+    $('.slide').eq(clickedIndex).addClass('active');
+    toggleChangeBtn();
+  });
+
+  $('.change-btn').click(function() {
+    var $displaySlide = $('.active');
+    $displaySlide.removeClass('active');
+    if ($(this).hasClass('next-btn')) {
+      $displaySlide.next().addClass('active');
+    } else {
+      $displaySlide.prev().addClass('active');
+    }
+    toggleChangeBtn();
+  });
+});
