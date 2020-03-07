@@ -13,29 +13,30 @@
 
     <body>
         <nav class='navbar navbar-expand-sm navbar-dark fixed-top'>
-            <a class='navbar-brand' href='{% url "lunchmap:index" %}'>Waikiki Wedding</a>
+          <a class='navbar-brand' href='{% url "lunchmap:index" %}'>Waikiki Wedding</a>
 
             <!-- 左側のヘッダー -->
             <ul class='navbar-nav mr-auto'>
               <li class='nav-time menu'>
-                <a class="nav-link" href='{% url "lunchmap:agenda" %}'>Agenda</a>
+                <a class="nav-link" href='#1'>ご挨拶</a>
               </li>
               <li class='nav-time menu'>
-                <a class="nav-link" href='{% url "lunchmap:venue" %}'>Place</a>
+                <a class="nav-link" href='#2'>ウェディング会場</a>
               </li>
               <li class='nav-time menu'>
-                <a class="nav-link" href='{% url "lunchmap:photo" %}'>Photos</a>
+                <a class="nav-link" href='#3'>当日の流れ</a>
               </li>
               <li class='nav-time menu'>
-                <a class="nav-link" href='{% url "lunchmap:index02" %}'>Restaurant</a>
+                <a class="nav-link" href='#4'>写真館</a>
               </li>
-              <li class='nav-time menu'>
-                <a class="nav-link" href="#">Blog</a>
-              </li>
+
             </ul>
 
             <!-- 右側のヘッダー -->
             <ul class='navbar-nav'>
+              <li class='nav-time menu'>
+                <a class="nav-link" href='{% url "lunchmap:index02" %}'>Restaurant</a>
+              </li>
               {% if user.is_authenticated %}
               <li class='nav-time'>
                 <span class='navbar-text'>ようこそ {{ user }} さん - </span>
@@ -47,9 +48,9 @@
               <li class='nav-item'>
                 <a href='{% url "login" %}' class='login nav-link'>Login</a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href='{% url "accounts:signup" %}' class='signup nav-link'> Sign up </a>
-              </li>
+              </li> -->
               {% endif %}
             </ul>
         </nav>
@@ -74,7 +75,7 @@
             <p class="info">Aloha Ke Akua, Waikiki</p>
         </div>
 
-        <div class="category-title">
+        <div class="category-title" id="1">
         <h1 class="title-phrase">Greeting</h1>
         <p>ご挨拶</p>
         </div>
@@ -92,7 +93,7 @@
           </div>
         </div>
 
-        <div class="category-title">
+        <div class="category-title" id="2">
         <h1 class="title-phrase">Wedding Place</h1>
         <p>挙式場のご紹介</p>
         </div>
@@ -114,7 +115,7 @@
           </div>
         </div>
 
-        <div class="category-title">
+        <div class="category-title" id="3">
         <h1 class="title-phrase">Agenda</h1>
         <p>ウェディング当日の流れ</p>
         <p>3月19日の挙式当日は、10時半より２箇所のホテルにバスがピックアップに参ります。</p>
@@ -150,8 +151,8 @@
 
           </div>
 
-          <div class="photo-gallery">
-            <p>（写真を見るにはログインが必要です)</p>
+          <div class="photo-gallery" id="4">
+            <p>写真をクリック↓↓（写真を見るにはログインが必要です)</p>
             <div class="display-photo">
               {% if user.is_authenticated %}
               {% load static %}
@@ -162,6 +163,11 @@
             </div>
 
           </div>
+
+          <div class="category-title"></div>
+          <div class="category-title"></div>
+
+      <nav class='navbar navbar-expand-sm navbar-dark'></nav>
 
     </body>
 </html>

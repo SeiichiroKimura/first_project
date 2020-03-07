@@ -12,11 +12,54 @@
     </head>
 
     <body>
+      <nav class='navbar navbar-expand-sm navbar-dark fixed-top'>
+          <a class='navbar-brand' href='{% url "lunchmap:index" %}'>Waikiki Wedding</a>
+
+          <!-- 左側のヘッダー -->
+          <!-- <ul class='navbar-nav mr-auto'>
+            <li class='nav-time menu'>
+              <a class="nav-link" href='#1'>ご挨拶</a>
+            </li>
+            <li class='nav-time menu'>
+              <a class="nav-link" href='#2'>ウェディング会場</a>
+            </li>
+            <li class='nav-time menu'>
+              <a class="nav-link" href='#3'>当日の流れ</a>
+            </li>
+            <li class='nav-time menu'>
+              <a class="nav-link" href='#4'>写真館</a>
+            </li>
+            <li class='nav-time menu'>
+              <a class="nav-link" href='{% url "lunchmap:index02" %}'>Restaurant</a>
+            </li>
+          </ul> -->
+
+          <!-- 右側のヘッダー -->
+          <ul class='navbar-nav'>
+            {% if user.is_authenticated %}
+            <li class='nav-time'>
+              <span class='navbar-text'>ようこそ {{ user }} さん - </span>
+            </li>
+            <li class='nav-item'>
+              <a href='{% url "logout" %}' class='logout nav-link'>Logout</a>
+            </li>
+            {% else %}
+            <li class='nav-item'>
+              <a href='{% url "login" %}' class='login nav-link'>Login</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a href='{% url "accounts:signup" %}' class='signup nav-link'> Sign up </a>
+            </li> -->
+            {% endif %}
+          </ul>
+      </nav>
+
+    <!-- <body>
         <nav class='navbar navbar-expand-sm navbar-dark bg-dark fixed-top'>
-            <a class='navbar-brand' href='{% url "lunchmap:index" %}'>Wedding 2020</a>
+            <a class='navbar-brand' href='{% url "lunchmap:index" %}'>Wedding 2020</a> -->
 
             <!-- 左側のヘッダー -->
-            <ul class='navbar-nav mr-auto'>
+            <!-- <ul class='navbar-nav mr-auto'>
               <li class='nav-time menu'>
                 <a class="nav-link" href='{% url "lunchmap:agenda" %}'>Agenda</a>
               </li>
@@ -32,10 +75,10 @@
               <li class='nav-time menu'>
                 <a class="nav-link" href="#">Blog</a>
               </li>
-            </ul>
+            </ul> -->
 
             <!-- 右側のヘッダー -->
-            <ul class='navbar-nav'>
+            <!-- <ul class='navbar-nav'>
               {% if user.is_authenticated %}
               <li class='nav-time'>
                 <span class='navbar-text'>ようこそ {{ user }} さん - </span>
@@ -52,7 +95,7 @@
               </li>
               {% endif %}
             </ul>
-        </nav>
+        </nav> -->
 
         <div class='container'>
             {% block content %}
