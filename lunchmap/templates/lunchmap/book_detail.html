@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+  <h1>{{ book.title }}</h1>
+  <div>
+    <p>{{ book.image.url }}</p>
+  </div>
+
+  <div>
+    <a href='{% url "lunchmap:photo" %}'>一覧</a>
+    <!-- {% if request.user.id == object.author_id %}
+      | <a href='{% url "lunchmap:update" shop.pk %}'>編集</a>
+      | <a href='{% url "lunchmap:delete" shop.pk %}'>削除</a>
+    {% endif %} -->
+  </div>
+
+{% endblock %}

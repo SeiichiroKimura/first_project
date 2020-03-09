@@ -1,10 +1,13 @@
 from django.views import generic
-from .models import Category, Shop
+from .models import Category, Shop, Book
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.shortcuts import redirect
+from .forms import BookForm
+from django.views.generic import RedirectView
 
 def index(request):
     context = {
@@ -12,10 +15,6 @@ def index(request):
     return render(request, 'lunchmap/index.html', context)
 
 def agenda(request):
-    context = {
-        'message': 'Welcome my BBS',
-        'players': ['勇者', '戦士', '魔法使い', '忍者']
-    }
     return render(request, 'lunchmap/agenda.html', context)
 
 def venue(request):
@@ -24,9 +23,19 @@ def venue(request):
     return render(request, 'lunchmap/venue.html', context)
 
 def photo(request):
-    context = {
-    }
-    return render(request, 'lunchmap/photo.html', context)
+    if request.method == "POST":
+        form = BookForm(request.POST)
+        if form.is_valid():
+            book = Book()
+            print(request)
+            book.title = request.POST['title']
+            book.image = request.FILES['image']
+            book.author = request.user
+            book.save()
+            return redirect('index', pk=book.pk)
+    else:
+        form = BookForm()
+    return render(request, 'lunchmap/photo.html', {'form': form})
 
 class IndexView(generic.ListView):
     model = Shop

@@ -2,12 +2,23 @@
 {% block content %}
 
 <h1 class="photo-top">Photos</h1>
-<p>写真を新しいものから準に表示したい</p>
+<p>ユーザーが写真をアップロードし、写真を新しいものから準に表示するページ</p>
 
-{% load static %}
-<img class="photo1" src="{% static 'lunchmap/images/bali.jpg' %}" width="45%" height="45%"></img>
-<img class="photo2" src="{% static 'lunchmap/images/bali02.jpg' %}" width="45%" height="45%"></img>
-<img class="photo3" src="{% static 'lunchmap/images/fukuoka.jpg' %}" width="45%" height="45%"　border=3/></img>
-<img class="photo3" src="{% static 'lunchmap/images/toshiandsawa.jpg' %}" width="45%" height="45%"　border=3/></img>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+</form>
+
+{% for book in books %}
+<tr>
+<td>{{ book.title }}</td>
+<td><img src="/{{ book.image.url }}" style="width:300px;height:auto"></td>
+</tr>
+
+<h1><a href="{% url 'book_detail' pk=book.pk %}">{{ book.title }}</a></h1>
+<p>{{ book.link|linebreaksbr }}</p>
+{% endfor %}
+
 
 {% endblock %}

@@ -12,48 +12,55 @@
     </head>
 
     <body>
-        <nav class='navbar navbar-expand-sm navbar-dark fixed-top'>
-          <a class='navbar-brand' href='{% url "lunchmap:index" %}'>Waikiki Wedding</a>
+      <!-- demo -->
+      <nav class='navbar navbar-expand-sm navbar-dark fixed-top'>
+        <a class='navbar-brand' href='{% url "lunchmap:index" %}'>Waikiki Wedding</a>
+        <!-- <div class="collapse navbar-collapse w-100 flex-md-column" id="navbarCollapse"> -->
+        <ul class='navbar-nav mr-auto'>
+          <li class='nav-time menu'>
+            <a class="nav-link" href='#1'>ご挨拶</a>
+          </li>
+          <li class='nav-time menu'>
+            <a class="nav-link" href='#2'>ウェディング会場</a>
+          </li>
+          <li class='nav-time menu'>
+            <a class="nav-link" href='#3'>当日の過ごし方</a>
+          </li>
+          <li class='nav-time menu'>
+            <a class="nav-link" href='#4'>写真館</a>
+          </li>
+        </ul>
 
-            <!-- 左側のヘッダー -->
-            <ul class='navbar-nav mr-auto'>
-              <li class='nav-time menu'>
-                <a class="nav-link" href='#1'>ご挨拶</a>
-              </li>
-              <li class='nav-time menu'>
-                <a class="nav-link" href='#2'>ウェディング会場</a>
-              </li>
-              <li class='nav-time menu'>
-                <a class="nav-link" href='#3'>当日の流れ</a>
-              </li>
-              <li class='nav-time menu'>
-                <a class="nav-link" href='#4'>写真館</a>
-              </li>
-
-            </ul>
-
-            <!-- 右側のヘッダー -->
-            <ul class='navbar-nav'>
-              <li class='nav-time menu'>
-                <a class="nav-link" href='{% url "lunchmap:index02" %}'>Restaurant</a>
-              </li>
-              {% if user.is_authenticated %}
-              <li class='nav-time'>
-                <span class='navbar-text'>ようこそ {{ user }} さん - </span>
-              </li>
-              <li class='nav-item'>
-                <a href='{% url "logout" %}' class='logout nav-link'>Logout</a>
-              </li>
-              {% else %}
-              <li class='nav-item'>
-                <a href='{% url "login" %}' class='login nav-link'>Login</a>
-              </li>
-              <!-- <li class="nav-item">
-                <a href='{% url "accounts:signup" %}' class='signup nav-link'> Sign up </a>
-              </li> -->
-              {% endif %}
-            </ul>
+          <ul class='navbar-nav ml-auto'>
+            {% if user.is_authenticated %}
+            <li class='nav-time'>
+              <span class='navbar-text'>ようこそ {{ user }} さん - </span>
+            </li>
+            <li class='nav-item'>
+              <a href='{% url "logout" %}' class='logout nav-link'>Logout</a>
+            </li>
+            {% else %}
+            <li class='nav-item'>
+              <a href='{% url "login" %}' class='login nav-link'>Login</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a href='{% url "accounts:signup" %}' class='signup nav-link'> Sign up </a>
+            </li>
+            {% endif %}
+          </ul> -->
+         </ul>
         </nav>
+
+        <header>
+          <ul>
+            <li>
+              <a class="nav-link" href='{% url "lunchmap:index02" %}'>現地めグルメ</a>
+            </li>
+            <li>
+              <a class="nav-link" href='https://weather.yahoo.co.jp/weather/world/US-HI/91182/'>ハワイの気候・服装</a>
+            </li>
+          </ul>
+        </header>
 
         <div class="top-cover">
           <h1>Welcome to our Wedding</h1>
@@ -164,10 +171,11 @@
 
           </div>
 
-          <div class="category-title"></div>
-          <div class="category-title"></div>
-
-      <nav class='navbar navbar-expand-sm navbar-dark'></nav>
+      <nav class='navbar navbar-expand-sm navbar-dark'>
+      <p>お問い合わせ　
+        <br>木村誓一郎<br>
+        TEL:080-9806-3563</p>
+      </nav>
 
     </body>
 </html>
