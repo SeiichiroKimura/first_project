@@ -13,10 +13,8 @@
     </head>
 
     <body>
-      <!-- demo -->
       <nav class='navbar navbar-expand-sm navbar-dark fixed-top'>
         <a class='navbar-brand' href='{% url "lunchmap:index" %}'>Waikiki Wedding</a>
-        <!-- <div class="collapse navbar-collapse w-100 flex-md-column" id="navbarCollapse"> -->
         <ul class='navbar-nav mr-auto'>
           <li class='nav-time menu'>
             <a class="nav-link" href='#1'>ご挨拶</a>
@@ -32,25 +30,24 @@
           </li>
         </ul>
 
-          <ul class='navbar-nav ml-auto'>
-            {% if user.is_authenticated %}
-            <li class='nav-time'>
-              <span class='navbar-text'>ようこそ {{ user }} さん - </span>
-            </li>
-            <li class='nav-item'>
-              <a href='{% url "logout" %}' class='logout nav-link'>Logout</a>
-            </li>
-            {% else %}
-            <li class='nav-item'>
-              <a href='{% url "login" %}' class='login nav-link'>Login</a>
-            </li>
-            <!-- <li class="nav-item">
-              <a href='{% url "accounts:signup" %}' class='signup nav-link'> Sign up </a>
-            </li>
-            {% endif %}
-          </ul> -->
-         </ul>
-        </nav>
+        <ul class='navbar-nav ml-auto'>
+          {% if user.is_authenticated %}
+          <li class='nav-time'>
+            <span class='navbar-text'>ようこそ {{ user }} さん - </span>
+          </li>
+          <li class='nav-item'>
+            <a href='{% url "logout" %}' class='logout nav-link'>logout</a>
+          </li>
+          {% else %}
+          <li class='nav-item'>
+            <a href='{% url "login" %}' class='login nav-link'>Login</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a href='{% url "accounts:signup" %}' class='signup nav-link'> Sign up </a>
+          </li> -->
+          {% endif %}
+        </ul>
+      </nav>
 
         <header>
           <ul>
@@ -78,28 +75,29 @@
                 }
               </script>
             </span>日</div>
-
             <p class="info">2020.03.19</p>
             <p class="info">Aloha Ke Akua, Waikiki</p>
         </div>
 
-        <div class="category-title" id="1">
-        <h1 class="title-phrase">Greeting</h1>
-        <p>ご挨拶</p>
-        </div>
+        <div class="greeting-wrapper" id="1">
+          <div class="category-title">
+          <h1 class="title-phrase">Greeting</h1>
+          <p>ご挨拶</p>
+          </div>
 
-        <div class="greeting">
-          <div class="greeting-photo">
-            {% load static %}
-            <img class="maedori" src="{% static 'lunchmap/images/maedori01.jpg' %}" width="50%" height="50%"></img>
+          <div class="greeting">
+            <div class="greeting-photo">
+              {% load static %}
+              <img class="maedori" src="{% static 'lunchmap/images/maedori01.jpg' %}" width="50%" height="50%"></img>
+            </div>
+            <div class="greeting-text">
+              　この度は私たちの結婚を一緒にお祝いいただき<br>誠にありがとうございます。<br><br>
+              　無事に入籍し、ハワイの地で無事に挙式を行えるのも<br>皆様の暖かな応援あってのことです。<br><br>
+              　当日はぜひ、開放感の溢れるハワイでのパーティを<br>存分にお楽しみください。<br>
+                <p>木村誓一郎・幸代</p>
+            </div>
           </div>
-          <div class="greeting-text">
-            　この度は私たちの結婚を一緒にお祝いいただき<br>誠にありがとうございます。<br><br>
-            　無事に入籍し、ハワイの地で無事に挙式を行えるのも<br>皆様の暖かな応援あってのことです。<br><br>
-            　当日はぜひ、開放感の溢れるハワイでのパーティを<br>存分にお楽しみください。<br><br>
-              <p>木村誓一郎・幸代</p>
-          </div>
-        </div>
+       </div>
 
         <div class="category-title" id="2">
         <h1 class="title-phrase">Wedding Place</h1>
@@ -123,54 +121,85 @@
           </div>
         </div>
 
-        <div class="category-title" id="3">
+        <!-- <div class="category-title" id="3">
         <h1 class="title-phrase">Agenda</h1>
         <p>ウェディング当日の流れ</p>
         <p>3月19日の挙式当日は、10時半より２箇所のホテルにバスがピックアップに参ります。</p>
         <p>その後は式場へ移動し、挙式・パーティを開催。ワイキキ市街への戻りは<br>16時ごろを予定しておりますので、
           ご予定を調整いただけますと幸いです。</p>
+        </div> -->
+
+        <div class="lesson-wrapper" id="3">
+          <div class="container">
+            <div class="heading">
+              <h2>Wedding Day</h2>
+              <p>ウェディング当日の流れ</p>
+              <p class="text-contents">3月19日の挙式当日の流れは下記の通りとなります。</p>
+            </div>
+            <div class="lessons">
+              <div class="lesson">
+                <div class="lesson-icon">
+                  <p>集合！（10:35~10:45)</p>
+                  <img src="{% static 'lunchmap/images/hilton02.jpg' %}" width="50%" height="50%">
+                </div>
+                <p class="text-contents">ホテル２箇所へミニバスがピックアップに参ります。<br>10:35 ヒルトンハワイアンビレッジ、<br>10:45 リッツカールトンレジデンシャル<br>にお集まりください。</p>
+              </div>
+              <div class="lesson">
+                <div class="lesson-icon">
+                  <p>会場へ移動 (~11:30)</p>
+                  <img src="{% static 'lunchmap/images/waikikibus.jpg' %}" width="70%" height="70%">
+                </div>
+                <p class="text-contents">ミニバスで皆様をウェディング会場へお連れいたします。40分程度の移動時間となりますので、車酔いや暇をしないように酔い止め、スマホ、音楽聴けるもの、話のネタなどなどご持参ください。</p>
+              </div>
+              <div class="lesson">
+                <div class="lesson-icon">
+                  <p>挙式・セレモニー (12:00~13:00)</p>
+                  <img src="{% static 'lunchmap/images/ceremony.png' %}" width="70%" height="70%">
+                </div>
+                <p class="text-contents">会場に到着後、皆さん落ち着きましたら早速挙式を行います！挙式とはいえ自然の中でのガーデンウェディングですので、ある程度カジュアルです。格式張らずに、ぜひ笑顔で新郎新婦を迎えてやってください。。</p>
+              </div>
+              <div class="lesson">
+                <div class="lesson-icon">
+                  <p>パーティー(13:30~15:30くらい)</p>
+                  <img src="{% static 'lunchmap/images/restaurant_space.jpg' %}" width="70%" height="70%">
+                </div>
+                <p class="text-contents">挙式後、式場内の自然を楽しんでいただきながらパーティー会場へ移動。暖かな緑が広がるパーティ会場で食事やご歓談をお楽しみください。少しばかり参加型のアクティビティもご用意している？……かも。</p>
+              </div>
+              <div class="clear"></div>
+            </div>
+          </div>
         </div>
 
-        <!-- こっからProgateマルパクリ -->
-        <div class="slide-wrapper">
-            <div class="change-btn-wrapper">
-              <div class="change-btn prev-btn">← 前へ</div>
-              <div class="change-btn next-btn">次へ →</div>
+        <div class="photo-wrapper" id="4">
+          <div class="container">
+            <div class="heading">
+              <h2>Photo Gallery</h2>
+              <p>新郎新婦とゲストの写真ご紹介</p>
             </div>
-            <ul class="slides">
-              <li class="slide active"><p>ヒルトン・ハワイアンビレッジ（1つ目の集合場所）</p><img src="{% static 'lunchmap/images/hilton02.jpg' %}" width="50%" height="50%"></img><p>10:30 Hilton Hawaian Villageピックアップ → 11:00 リッツカールトンでPick up</p></li>
-              <li class="slide"><p>リッツカールトン・レジデンシャル（2つ目の集合場所）</p><img src="{% static 'lunchmap/images/litzcarton.jpg' %}" width="50%" height="50%"></img><p>10:30 Hilton Hawaian Villageピックアップ → 11:00 リッツカールトンでPick up</p></li>
-              <li class="slide"><p>バス移動（写真はイメージです）</p><img src="{% static 'lunchmap/images/waikikibus.jpg' %}" width="50%" height="50%"></img><p>送迎バスで移動 → 式場へ移動</p></li>
-              <li class="slide"><p>ウェディングセレモニー</p><img src="{% static 'lunchmap/images/ceremony.png' %}" width="50%" height="50%"></img><p>挙式：12:00~13:00</p></li>
-              <li class="slide"><p>ウェディング・パーティ（写真はイメージです）</p><img src="{% static 'lunchmap/images/restaurant_space.jpg' %}" width="50%" height="50%"></img><p>パーティ（食事会）:13:00~15:00</p></li>
-            </ul>
+            <div class="slide-wrapper">
+              <div class="change-btn-wrapper">
+                <div class="change-btn prev-btn">← 前へ</div>
+                <div class="change-btn next-btn">次へ →</div>
+              </div>
+              <ul class="slides">
+                <li class="slide active"><img src="{% static 'lunchmap/images/maedori03.jpg' %}" width="100%" height="100%"><p>新郎新婦、前撮り＠浜離宮（2020年2月27日）</p></li>
+                <li class="slide"><img src="{% static 'lunchmap/images/maedori04.jpg' %}" width="100%" height="100%"><p>新郎新婦、前撮り＠浜離宮（2020年2月27日）</p></li>
+                <li class="slide"><img src="{% static 'lunchmap/images/bali.JPG' %}" width="100%" height="100%"><p>新郎新婦、バリ旅行（2019年5月）</p></li>
+                {% if user.is_authenticated %}
+                <li class="slide"><p>↓↓詳細の閲覧や投稿などにはログインが必要です（画面をクリック）</p><a href='{% url "lunchmap:photo" %}'><img src="{% static 'lunchmap/images/toshiandsawa.JPG' %}" width="100%" height="100%"></a><p>新郎の甥と姪（俊和くんと桜和ちゃん）</p></li>
+                {% else %}
+                <li class="slide"><a href='{% url "login" %}'><img src="{% static 'lunchmap/images/toshiandsawa.JPG' %}" width="100%" height="100%"></a><p>新郎の甥と姪（俊和くんと桜和ちゃん）</p></li>
+                {% endif %}
+              </ul>
+            </div>
             <div class="index-btn-wrapper">
               <div class="index-btn">1</div>
               <div class="index-btn">2</div>
               <div class="index-btn">3</div>
               <div class="index-btn">4</div>
-              <div class="index-btn">5</div>
             </div>
           </div>
-
-          <div class="category-title">
-          <h1 class="title-phrase">Photo Gallery</h1>
-          <p>新郎新婦とゲストの写真ご紹介</p>
-
-          </div>
-
-          <div class="photo-gallery" id="4">
-            <p>写真をクリック↓↓（写真を見るにはログインが必要です)</p>
-            <div class="display-photo">
-              {% if user.is_authenticated %}
-              {% load static %}
-              <a href='{% url "lunchmap:photo" %}'><img src="{% static 'lunchmap/images/bali.JPG' %}" width="40%" height="40%"></img></a>
-              {% else %}
-              <a href='{% url "login" %}'><img src="{% static 'lunchmap/images/bali.JPG' %}" width="40%" height="40%"></img></a>
-              {% endif %}
-            </div>
-
-          </div>
+        </div>
 
       <nav class='navbar navbar-expand-sm navbar-dark'>
       <p>お問い合わせ　
@@ -180,53 +209,3 @@
 
     </body>
 </html>
-
-<!-- <div class="place">
-<h1>Wedding Place</h1>
-
-<h2>ハワイ・オワフ島</h2>
-<h2>The Private Garden Aloha Ke Akua</h2>
-<h3>ザ・プライベートガーデン アロハ・ケ・アクア</h3>
-
-<p>妖精が造り上げたという伝説が伝わるハート型の湖を望む聖地に広がる「ザ・プライベート・ガーデン アロハ・ケ・アクア」は、
-雄大な山々や芝生の緑と大空と湖の青が寄り添う 特別な場所。ビーチや公園などの美しい景観を活かした写真撮影にこだわったり、
-自然の中でパーティやゲストとの語らいを楽しんだりすることが出来る、ナチュラルスタイルの挙式場です。</p>
-
-{% load static %}
-<img class="photo1" src="{% static 'lunchmap/images/alohake.jpg' %}" width="100%" height="100%"></img>
-
-<h4>“古き良きハワイ”の魅力が息づく聖地</h4>
-<p>「ザ・プライベート・ガーデン アロハ・ケ・アクア」のあるカネオヘエリアは、ナチュラルでスピリチュアルなネイティブハワイが満喫できる場所みたいです。</p>
-
-<img class="photo1" src="{% static 'lunchmap/images/wedding_space.jpg' %}" width="100%" height="100%"></img>
-
-<h4>-ナチュラルスタイル-</h4>
-<p>自然に囲まれてとり行う挙式。雰囲気は抜群。晴れるといいな〜。。</p>
-
-<img class="photo1" src="{% static 'lunchmap/images/restaurant_space.jpg' %}" width="100%" height="100%"></img>
-
-<h4>豊かな自然に囲まれ開放感のあるパーティ会場</h4>
-<p>湖を望むガーデンダイニングは、美しい眺望と心地よい海風に癒される貸切のプライベート空間。自然体の寛ぎを大切なゲストとともに満喫したいところ。</p>
-
-<p>↓地図はこちら</p>
-
-<iframe id='map'
-  src='https://www.google.com/maps/embed/v1/place?key=AIzaSyDA7cTXuCisuoTl4DCznOUA-q0w7XEjKuM&q=47-507 Kamehameha Hwy, Kaneohe, HI 96744 アメリカ合衆国'
-  width='100%'
-  height='420'
-  frameborder='0'>
-</iframe>
-
-<a href="https://www.watabe-wedding.co.jp/resort_wedding_overseas/hawaii/chapel_aloha_ke/?utm_source=google&utm_medium=cpc&utm_campaign=rz_br_chapel&utm_content=hawaii_chapel&gclid=CjwKCAiAj-_xBRBjEiwAmRbqYv7Gej1matV3A_kPh5Al7Cbx5Ixhr03G91PCLkk5XDLd0p_oXZE5XhoCr5YQAvD_BwE#" target="_blank">さらに詳細をチェック</a>
-
-</div> -->
-
-<!-- <ul>
-  <li>当日の流れ：何時にどこ集合とか、パーティの式次第とかざっくりと</li>
-  <li>会場：ウェディング会場の場所（地図）と雰囲気を、写真やムービーで紹介</li>
-  <li>写真館：自分たちの前撮りとか写真を紹介</li>
-  <li>現地グルメ：お勧めのレストランをリスト化。ランチマップアプリを応用</li>
-  <li>ブログ：式の準備状況などを、ブログ的に書いていく</li>
-</ul>
-
-<p>グルメとブログには、サインインすればゲストも投稿可能</p> -->

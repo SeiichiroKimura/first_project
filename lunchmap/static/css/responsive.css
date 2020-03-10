@@ -3,6 +3,14 @@
     font-size: 12px;
   }
 
+  .navbar-nav{
+   display: none;
+ }
+
+ .menu-icon {
+   display: block;
+ }
+
   .category-title h1 {
     font-size: 22px;
   }
@@ -47,4 +55,28 @@
   .place-text p {
     font-size: 10px;
   }
+
+  .lesson {
+     width: 100%;
+   }
+
+.heading h2 {
+  font-size: 20px;
+}
+
+.photo-wrapper {
+  width: 100%;
+}
+
+.slides {
+  width: 100%;
+}
+
+
+
+footer {
+  text-align: center;
+}
+
+
 }
