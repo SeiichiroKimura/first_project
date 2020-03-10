@@ -7,6 +7,7 @@
         <title>Waikiki Wedding</title>
         {% load static %}
         <link rel="stylesheet" href="{% static 'css/style_layout.css' %}">
+        <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
         <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/layout.js' %}"></script>
     </head>
@@ -54,10 +55,10 @@
         <header>
           <ul>
             <li>
-              <a class="nav-link" href='{% url "lunchmap:index02" %}'>現地めグルメ</a>
+              <a href='{% url "lunchmap:index02" %}'>現地めグルメ</a>
             </li>
             <li>
-              <a class="nav-link" href='https://weather.yahoo.co.jp/weather/world/US-HI/91182/'>ハワイの気候・服装</a>
+              <a href='https://weather.yahoo.co.jp/weather/world/US-HI/91182/' target="_blank">ハワイの気候・服装</a>
             </li>
           </ul>
         </header>
@@ -95,8 +96,8 @@
           <div class="greeting-text">
             　この度は私たちの結婚を一緒にお祝いいただき<br>誠にありがとうございます。<br><br>
             　無事に入籍し、ハワイの地で無事に挙式を行えるのも<br>皆様の暖かな応援あってのことです。<br><br>
-            　当日はぜひ、開放感の溢れるハワイでのパーティを<br>存分にお楽しみください。<br><br><br><br>
-            木村誓一郎・幸代
+            　当日はぜひ、開放感の溢れるハワイでのパーティを<br>存分にお楽しみください。<br><br>
+              <p>木村誓一郎・幸代</p>
           </div>
         </div>
 
@@ -117,7 +118,7 @@
             <p>雰囲気とコンセプト（＋噂）だけで、新郎新婦とも即決したウェディング会場です。道端アンジェリカなど有名人もこの会場で挙式・パーティを行った模様。
             <br>ワイキキの市街地から車で１時間程度と少し離れますが、自然豊かな環境を独占し、リラックスできること間違いなしです！</p>
 
-            さらに詳細は<a href="https://www.watabe-wedding.co.jp/resort_wedding_overseas/hawaii/chapel_aloha_ke/?utm_source=google&utm_medium=cpc&utm_campaign=rz_br_chapel&utm_content=hawaii_chapel&gclid=CjwKCAiAj-_xBRBjEiwAmRbqYv7Gej1matV3A_kPh5Al7Cbx5Ixhr03G91PCLkk5XDLd0p_oXZE5XhoCr5YQAvD_BwE#" target="_blank">こちら</a>（外部リンク）
+            <p>さらに詳細は<a href="https://www.watabe-wedding.co.jp/resort_wedding_overseas/hawaii/chapel_aloha_ke/?utm_source=google&utm_medium=cpc&utm_campaign=rz_br_chapel&utm_content=hawaii_chapel&gclid=CjwKCAiAj-_xBRBjEiwAmRbqYv7Gej1matV3A_kPh5Al7Cbx5Ixhr03G91PCLkk5XDLd0p_oXZE5XhoCr5YQAvD_BwE#" target="_blank">こちら</a>（外部リンク）</p>
 
           </div>
         </div>
@@ -137,11 +138,11 @@
               <div class="change-btn next-btn">次へ →</div>
             </div>
             <ul class="slides">
-              <li class="slide active"><p>ヒルトン・ハワイアンビレッジ（1つ目の集合場所）</p><img src="{% static 'lunchmap/images/hilton02.jpg' %}" width="100%" height="100%"></img><p>10:30 Hilton Hawaian Villageピックアップ → 11:00 リッツカールトンでPick up</p></li>
-              <li class="slide"><p>リッツカールトン・レジデンシャル（2つ目の集合場所）</p><img src="{% static 'lunchmap/images/litzcarton.jpg' %}" width="100%" height="50%"></img><p>10:30 Hilton Hawaian Villageピックアップ → 11:00 リッツカールトンでPick up</p></li>
-              <li class="slide"><p>バス移動（写真はイメージです）</p><img src="{% static 'lunchmap/images/waikikibus.jpg' %}" width="100%" height="100%"></img><p>送迎バスで移動 → 式場へ移動</p></li>
-              <li class="slide"><p>ウェディングセレモニー</p><img src="{% static 'lunchmap/images/ceremony.png' %}" width="100%" height="100%"></img><p>挙式：12:00~13:00</p></li>
-              <li class="slide"><p>ウェディング・パーティ（写真はイメージです）</p><img src="{% static 'lunchmap/images/restaurant_space.jpg' %}" width="100%" height="100%"></img><p>パーティ（食事会）:13:00~15:00</p></li>
+              <li class="slide active"><p>ヒルトン・ハワイアンビレッジ（1つ目の集合場所）</p><img src="{% static 'lunchmap/images/hilton02.jpg' %}" width="50%" height="50%"></img><p>10:30 Hilton Hawaian Villageピックアップ → 11:00 リッツカールトンでPick up</p></li>
+              <li class="slide"><p>リッツカールトン・レジデンシャル（2つ目の集合場所）</p><img src="{% static 'lunchmap/images/litzcarton.jpg' %}" width="50%" height="50%"></img><p>10:30 Hilton Hawaian Villageピックアップ → 11:00 リッツカールトンでPick up</p></li>
+              <li class="slide"><p>バス移動（写真はイメージです）</p><img src="{% static 'lunchmap/images/waikikibus.jpg' %}" width="50%" height="50%"></img><p>送迎バスで移動 → 式場へ移動</p></li>
+              <li class="slide"><p>ウェディングセレモニー</p><img src="{% static 'lunchmap/images/ceremony.png' %}" width="50%" height="50%"></img><p>挙式：12:00~13:00</p></li>
+              <li class="slide"><p>ウェディング・パーティ（写真はイメージです）</p><img src="{% static 'lunchmap/images/restaurant_space.jpg' %}" width="50%" height="50%"></img><p>パーティ（食事会）:13:00~15:00</p></li>
             </ul>
             <div class="index-btn-wrapper">
               <div class="index-btn">1</div>
