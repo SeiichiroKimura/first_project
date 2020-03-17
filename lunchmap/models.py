@@ -35,7 +35,8 @@ class Shop(models.Model):
 
 class Book(models.Model):
     author = models.CharField(max_length=20)
-    image = models.ImageField(upload_to='images',blank=True, null=True)
+    image = models.ImageField(upload_to='images', blank=True, null=True)
+    link = models.CharField(max_length=200)
     title = models.CharField(max_length=32)
     published_date = models.DateTimeField(blank=True, null=True)
 

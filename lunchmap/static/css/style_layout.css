@@ -50,7 +50,8 @@ header ul {
 
 header li {
   padding-top: 5px;
-  padding-left: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
   display: inline-block;
 }
 
@@ -74,6 +75,10 @@ p.name {
   text-align: center;
   padding-top: 100px;
   color: pink;
+}
+
+p.sub-title {
+  text-align: center;
 }
 
 .sachi {
@@ -231,7 +236,7 @@ p {
 /* photo-wrapper */
 
 .photo-wrapper {
-  padding-bottom: 80px;
+  padding-bottom: 20px;
   padding-left: 5%;
   padding-right: 5%;
   text-align: center;
@@ -248,17 +253,18 @@ p {
   padding: 30px 0;
 }
 
-.change-btn-wrapper {
+/* .change-btn-wrapper {
   margin: 5px auto;
   font-size: 18px;
   width: 80%;
-}
+  padding-bottom: 20px;
+} */
 
-.change-btn-wrapper:after {
+/* .change-btn-wrapper:after {
   content: "";
   clear: both;
   display: block;
-}
+} */
 
 .prev-btn {
   cursor: pointer;
@@ -288,6 +294,7 @@ p {
 .index-btn-wrapper {
   font-size: 16px;
   margin-top: 10px;
+  padding-bottom: 20px;
 }
 
 .index-btn {
@@ -306,6 +313,9 @@ p {
   background-color: #5cabd0;
 }
 
+.toshi img: hover {
+  opacity: 0.7;
+}
 /*-------  ここまでprogate  --------*/
 
 /* ここから、フォロギャラリー */
@@ -314,6 +324,11 @@ p {
 .display-photo: hover {
   background-color: rgba(255, 255, 255, .2);
 }
+
+p.go-to-top {
+  text-align: center;
+}
+
 
 footer {
   background-color: #FFB6C1;

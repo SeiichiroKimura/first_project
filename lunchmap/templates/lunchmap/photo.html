@@ -16,9 +16,8 @@
 <td><img src="/{{ book.image.url }}" style="width:300px;height:auto"></td>
 </tr>
 
-<h1><a href="{% url 'book_detail' pk=book.pk %}">{{ book.title }}</a></h1>
+<h1><a href='{% url "lunchmap:bookdetail" book.pk %}'>{{ book.title }}</a></h1>
 <p>{{ book.link|linebreaksbr }}</p>
 {% endfor %}
-
 
 {% endblock %}

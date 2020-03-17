@@ -22,6 +22,11 @@ def venue(request):
     }
     return render(request, 'lunchmap/venue.html', context)
 
+def photolist(request):
+    context = {
+    }
+    return render(request, 'lunchmap/photo_list.html', context)
+
 def photo(request):
     if request.method == "POST":
         form = BookForm(request.POST)
@@ -29,13 +34,22 @@ def photo(request):
             book = Book()
             print(request)
             book.title = request.POST['title']
+            book.link = request.POST['link']
             book.image = request.FILES['image']
             book.author = request.user
             book.save()
-            return redirect('index', pk=book.pk)
+            return redirect('lunchmap: photolist', pk=book.pk)
     else:
         form = BookForm()
-    return render(request, 'lunchmap/photo.html', {'form': form})
+        obj = Book.objects.all()
+
+    return render(request, 'lunchmap/photo.html', {
+        'form': form,
+        'obj': obj
+        })
+
+class DetailView(generic.DetailView):
+    model = Book
 
 class IndexView(generic.ListView):
     model = Shop

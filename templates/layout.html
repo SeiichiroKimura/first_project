@@ -7,6 +7,7 @@
         <title>Waikiki Wedding</title>
         {% load static %}
         <link rel="stylesheet" href="{% static 'css/style_layout.css' %}">
+        <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
         <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/layout.js' %}"></script>
     </head>
@@ -101,5 +102,12 @@
             {% block content %}
             {% endblock %}
         </div>
+
+        <p class="go-to-top"><a href="{% url 'lunchmap:index' %}">トップに戻る</a></p>
+    <footer>
+      <p>お問い合わせ　
+      <br>木村誓一郎<br>
+        TEL:080-9806-3563</p>
+    </footer>
     </body>
 </html>

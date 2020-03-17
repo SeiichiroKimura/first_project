@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+
+  <h1 class="restaurant-top">Photo - 写真一覧</h1>
+  <table class='table table-striped table-hover'>
+      <tr>
+        <th>作成者</th><th>写真</th><th>説明</th>
+      </tr>
+
+    {% for book in books %}
+      <tr>
+        <h1><a href='{% url "lunchmap:photo" book.pk %}'>{{ book.title }}</a></h1>
+        {{ book.image }}
+        {{ book.link }}
+      </tr>
+
+    {% endfor %}
+  </table>
+
+  {% if user.is_authenticated %}
+  <div>
+    <a href='{% url "lunchmap:photo" %}'>写真をアップロード</a>
+  </div>
+  {% endif %}
+
+  {% endblock %}
