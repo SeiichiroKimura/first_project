@@ -2,11 +2,11 @@
 {% block content %}
 
 <h1 class="photo-gallery">Photo Gallery</h1>
-<p class="sub-title">新郎新婦とゲストの写真ご紹介</p>
+<p class="sub-title">当日のピックアップ写真!</p>
 
 {% for image in images %}
     <img src='{{ MEDIA_URL }}{{image.picture}}' width="100%">
-    <p>{{ image.title }}</p>
+    <p>{{ image.comment }}</p>
 {% endfor %}
 
 <p><a href="{% url 'album:upload' %}">写真をアップロード</a></p>
